@@ -1,0 +1,13 @@
+.input-message{
+    padding-top: 20px;
+}
+
+.write-message{
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #337ab7;
+}
+
+.salve-message{
+    border-radius: 5%;
+}

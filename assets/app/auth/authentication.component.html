@@ -1,0 +1,18 @@
+<div class="sub-header">
+    <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid form-auth ">
+            <ul class="menu-auth">
+                <a routerLinkActive="active" [routerLink]="['signup']" class="btn btn-sm btn-outline-secondary"
+                    type="a">SignUp</a>
+                <a routerLinkActive="active" [routerLink]="['signin']" routerLinkActive="router-link-active"
+                    class="btn btn-sm btn-outline-secondary" type="a">SignIn</a>
+                <a routerLinkActive="active" [routerLink]="['logout']" class="btn btn-sm btn-outline-secondary"
+                    type="a">LogOut</a>
+            </ul>
+        </form>
+    </nav>
+</div>
+
+<div class="row spacing">
+    <router-outlet></router-outlet>
+</div>

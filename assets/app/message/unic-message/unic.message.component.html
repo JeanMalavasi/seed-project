@@ -1,0 +1,28 @@
+<div class="message-card card text-center">
+  <div class="message-header card-header">
+    {{ messageVarClasse.username }}
+  </div>
+  <div class="message-body card-body">
+    <p class="card-text message-text">{{ messageVarClasse.content }}</p>
+    <div class="config">
+      <a class="btn btn-info medio" (click)="exibirEdit = !exibirEdit">Edit</a>
+      <a class="btn btn-danger medio" (click)="onDelete()">Delete</a>
+    </div>
+
+    
+    <div class="input-group  edit-body" *ngIf="exibirEdit">
+      <div class="edit-group">
+        <form (ngSubmit)="onEdit(refLocalForm)" #refLocalForm="ngForm" ngNativeValidate>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" id="myContentEditngForm" class="form-control write-edit"
+                placeholder="Edite sua mensagem..." ngModel name="myContentEditngForm">
+              <button class="btn btn-info salve-edit"  type="submit">Salvar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<h1>signup</h1>
+<!-- Instrui o angular a usar o form espesifico, que foi criado no arquivo ts -->
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3 form-group">
+        <label for="firstName" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Nome"
+        formControlName="firstNameTS">
+        <!-- realiza a sincronização do form html com o form ts -->
+    </div>
+    <div class="mb-3 form-group">
+        <label for="lastName" class="form-label">Sobrenome:</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Sobrenome"
+        formControlName="lastNameTS">
+    </div>
+    <div class="mb-3 form-group">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Email"
+        formControlName="emailTS">
+    </div>
+    <div class="mb-3 form-group">
+        <label for="pass" class="form-label">Senha:</label>
+        <input type="password" class="form-control" id="pass" placeholder="Senha"
+        formControlName="passwordTS">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+    </div>
+</form>

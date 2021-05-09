@@ -1,0 +1,24 @@
+<nav class="navbar-expand-lg navbar fixed-top navbar-collapse navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a [routerLink]="['/mensagens']" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show" class="navbar-brand" href="#">Gerenciamento de mensagens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <li routerLinkActive="active">
+          <a data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link" 
+             [routerLink]="['/mensagens']">
+             Mensagens
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a data-toggle="collapse" data-target=".navbar-collapse.show" class="nav-link" 
+             [routerLink]="['/autenticacao']">
+             Autenticação
+          </a>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>

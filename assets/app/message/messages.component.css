@@ -1,0 +1,5 @@
+.row-centered {
+    text-align:center;
+    display: block;
+}
+.col-centered { display:inline-block; float:none; margin-right:-4px;}
