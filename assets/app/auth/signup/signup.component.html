@@ -1,28 +1,38 @@
 <h1>signup</h1>
 <!-- Instrui o angular a usar o form espesifico, que foi criado no arquivo ts -->
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3 form-group">
-        <label for="firstName" class="form-label">Nome:</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Nome"
-        formControlName="firstNameTS">
-        <!-- realiza a sincronização do form html com o form ts -->
-    </div>
-    <div class="mb-3 form-group">
-        <label for="lastName" class="form-label">Sobrenome:</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Sobrenome"
-        formControlName="lastNameTS">
-    </div>
-    <div class="mb-3 form-group">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Email"
-        formControlName="emailTS">
-    </div>
-    <div class="mb-3 form-group">
-        <label for="pass" class="form-label">Senha:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Senha"
-        formControlName="passwordTS">
-    </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+<form (ngSubmit)="onSubmit(refLocalForm)" #refLocalForm="ngForm" ngNativeValidate>
+    <div class="form-group">
+        <div class="mb-3 form-group">
+            <label for="firstName" class="form-label">Nome:</label>
+            <input ngModel type="text" class="form-control" id="firstNameTS" placeholder="Nome" name="firstNameTS">
+            <!-- realiza a sincronização do form html com o form ts -->
+        </div>
+        <div class="mb-3 form-group">
+            <label for="lastName" class="form-label">Sobrenome:</label>
+            <input ngModel type="text" class="form-control" id="lastNameTS" placeholder="Sobrenome" name="lastNameTS">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="email" class="form-label">Email:</label>
+            <input ngModel type="email" class="form-control" id="emailTS" placeholder="Email" name="emailTS">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="pass" class="form-label">Senha:</label>
+            <input ngModel type="password" class="form-control" id="passwordTS" placeholder="Senha" name="passwordTS">
+        </div>
+        <select ngModel class="form-select form-combobox mb-3" aria-label="Sexo" name="sexTS" id="sexTS">
+            <option selected>Sexo</option>
+            <option value="1">Masculino</option>
+            <option value="2">Feminino</option>
+            <option value="2">Prefiro não informar</option>
+        </select>
+        <div class="form-check mb-3">
+            <input ngModel class="form-check-input" type="checkbox" value="" id="termsTS" name="termsTS" required>
+            <label class="form-check-label" for="flexCheckDefault">
+                Aceito os teremos e condições de uso
+            </label>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
     </div>
 </form>

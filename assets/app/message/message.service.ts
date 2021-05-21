@@ -26,6 +26,7 @@ export class MessageService {
 
         //Como o dado enviado sera JSON, é necessario explicitar isso
         const myHeaders = new Headers({ 'Content-Type': 'application/json' });
+        console.log(bodyReq);
 
         //Esta linha "seta" o "observable".
         return this.http.post('http://localhost:3000/message', bodyReq, { headers: myHeaders })
@@ -38,7 +39,7 @@ export class MessageService {
 
                 //É criado um objeto message, que possui as informaçoes retornadas do banco.
                 let transformedCastMessagesModelFrontend: Message;
-                transformedCastMessagesModelFrontend = new Message(messagesResponseSalva.content, "Jean - banco", messagesResponseSalva._id)
+                transformedCastMessagesModelFrontend = new Message(messagesResponseSalva.content, responseEmJSON.userName, messagesResponseSalva._id)
 
                 //É adicionado a nova mensagem ao vetor que exibe as mensagens
                 this.messageService.push(transformedCastMessagesModelFrontend)
@@ -59,14 +60,17 @@ export class MessageService {
             .map((responseRecebida: Response) => {
                 const responseEmJSON = responseRecebida.json();
                 const messagesResponseRecebida = responseEmJSON.objMessagemsRecuperados;
-
+                const authorResponseRecebida = responseEmJSON.author
+                console.log(authorResponseRecebida)
                 //vetor que armazenará as respostas já transformadas
                 let transformedCastMessagesModelFrontend: Message[] = [];
                 //Pega todos dados no vetor e transforma um a um, numa nova Mensagem e o armazena no vetor de mensagens tranformaadas
+                let count = 0
                 for (let msg of messagesResponseRecebida) {
                     transformedCastMessagesModelFrontend.push(
-                        new Message(msg.content, "Jean - banco", msg._id, null)
+                        new Message(msg.content, authorResponseRecebida[count], msg._id, null)
                     )
+                count++;
                     //console.log(msg._id);
 
                 }

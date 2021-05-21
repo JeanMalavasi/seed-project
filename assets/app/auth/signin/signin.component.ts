@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
+import { AuthService } from "../auth.service";
+import { User } from "../User.model";
 
 @Component({
 
@@ -9,24 +11,25 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
     
 })
 
-export class SigninComponent { 
-    myForm: FormGroup
+export class SigninComponent {
+    constructor(private authService: AuthService){}
 
+    onSubmit(form: NgForm){
+        console.log(form.value)
+        const usuarioAuxiliar = new User(
+            form.value.emailTS, 
+            form.value.passwordTS
+            )
 
-    ngOnInit(){
-        //Aqui é feita a criaçao do propio form
-        this.myForm = new FormGroup({
-            emailTS: new FormControl(null, 
-            [
-                Validators.required,
-                Validators.pattern("[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+")
-            ]),
-            passwordTS: new FormControl(null, Validators.required)
-        });
-    }
-
-    onSubmit(){
-        console.log(this.myForm)
+            this.authService.signin(usuarioAuxiliar)
+            .subscribe(
+                //.subcribe(), recebe 3 callbacks
+                // 1 - Sucesso
+                dadosSucesso => console.log(dadosSucesso),
+                // 2- Erro
+                dadosErro => console.log(dadosErro)
+                // 3 - Extra(não utilizado)
+            );
         //this.myForm.reset()
     }
 }

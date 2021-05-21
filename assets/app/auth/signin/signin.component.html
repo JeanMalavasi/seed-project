@@ -1,17 +1,17 @@
 <h1>signin</h1>
 <!-- Instrui o angular a usar o form espesifico, que foi criado no arquivo ts -->
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3 form-group">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Email"
-        formControlName="emailTS">
-    </div>
-    <div class="mb-3 form-group">
-        <label for="pass" class="form-label">Senha:</label>
-        <input type="password" class="form-control" id="pass" placeholder="Senha"
-        formControlName="passwordTS">
-    </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary" >Cadastrar</button>
+<form (ngSubmit)="onSubmit(refLocalForm)" #refLocalForm="ngForm" ngNativeValidate>
+    <div class="form-group">
+        <div class="mb-3 form-group">
+            <label for="email" class="form-label">Email:</label>
+            <input ngModel type="email" class="form-control" id="emailTS" name="emailTS" placeholder="Email">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="pass" class="form-label">Senha:</label>
+            <input ngModel type="password" class="form-control" id="passwordTS" name="passwordTS" placeholder="Senha">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
     </div>
 </form>

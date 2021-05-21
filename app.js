@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 //Referencia a nova rota de Message
 var messageRoutes = require('./routes/messages')
+var userRoutes = require('./routes/user')
 
 var app = express();
 mongoose.connect('mongodb://localhost:27017/node-angular');
@@ -31,6 +32,7 @@ app.use(function (req, res, next) {
 });
 
 //Referencia a nova rota de Message
+app.use('/user', userRoutes)
 app.use('/message', messageRoutes)
 app.use('/', appRoutes);
 

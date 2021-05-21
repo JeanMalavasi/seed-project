@@ -9,7 +9,7 @@
       <a class="btn btn-danger medio" (click)="onDelete()">Delete</a>
     </div>
 
-    
+
     <div class="input-group  edit-body" *ngIf="exibirEdit">
       <div class="edit-group">
         <form (ngSubmit)="onEdit(refLocalForm)" #refLocalForm="ngForm" ngNativeValidate>
@@ -17,7 +17,7 @@
             <div class="input-group">
               <input type="text" id="myContentEditngForm" class="form-control write-edit"
                 placeholder="Edite sua mensagem..." ngModel name="myContentEditngForm">
-              <button class="btn btn-info salve-edit"  type="submit">Salvar</button>
+              <button class="btn btn-info salve-edit" type="submit">Salvar</button>
             </div>
           </div>
         </form>

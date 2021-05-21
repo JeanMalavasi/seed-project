@@ -13,6 +13,11 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { HttpModule } from '@angular/http';
+import { JwtInterceptor } from './auth/helpers/jwt.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './guard/auth.guard';
+import { MessageService } from './message/message.service';
 
 @NgModule({
     declarations: [
@@ -39,6 +44,12 @@ import { HttpModule } from '@angular/http';
         ReactiveFormsModule,
         //Necessario para realizar as requisiçoes http
         HttpModule
+    ],
+    providers: [
+        AuthGuard,
+        MessageService, 
+        AuthService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     ],
     bootstrap: [AppComponent]
 })

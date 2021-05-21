@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './guard/auth.guard';
+
+
 import { Message } from './message/Message.model';
 import { MessageService } from './message/message.service';
 
@@ -6,7 +10,8 @@ import { MessageService } from './message/message.service';
     selector: 'my-app',
     templateUrl: './app.component.html',
     //utilizando o providers, foi declarado uma instancia global de MessageService
-    providers: [MessageService]
+    
+
 })
 export class AppComponent {
     /*messageBinding: Message = new Message("Texto2", "Jean")

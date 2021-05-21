@@ -26,7 +26,7 @@ export class InputMessageComponent {
 
     //Metodo que utiliza de template driven, para capturar o conteudo do input posto no form "(name="myContentngForm")"
     onSubmit(form: NgForm){
-        const messageAuxiliar = new Message(form.value.myContentngForm, "JP - Template-Driven")
+        const messageAuxiliar = new Message(form.value.myContentngForm, "JP - Template-Driven", "",localStorage.getItem('id_user'))
         this.messageService.addMessage(messageAuxiliar)
             //Com a função "addMessage(), retornado um "Observable"
             //podemos utilizar o ".subscribe()", para enviar a requisição
